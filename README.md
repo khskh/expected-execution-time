@@ -36,6 +36,16 @@ for i in range(required_number_of_loop_iterations):
 
 time_calculation.reset()
 ```
+And as output we can get such a result:
+
+```
+Program execution time:                          00:07:27
+Iteration time:                                  00:00:33
+Average iteration time:                          00:00:34
+Program completion percentage:                   21.67 %
+Expected program execution time:                 00:34:25
+Estimated time until the end of the program:     00:26:57
+```
 
 You can also directly display one of several parameters returned by the function, for example
 ```python
