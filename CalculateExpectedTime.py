@@ -58,6 +58,14 @@ class CalculateExpectedTime:
         self.total_execution_time += self.iteration_time.total_seconds()
         self.started = False
 
+    @staticmethod
+    def format_time(seconds):
+        hours = int(seconds // 3600)
+        remaining_seconds = seconds % 3600
+        minutes = int(remaining_seconds // 60)
+        seconds = int(remaining_seconds % 60)
+        return "{:02d}:{:02d}:{:02d}".format(hours, minutes, seconds)
+
     @property
     def execution_time(self):
         """
@@ -118,9 +126,15 @@ class CalculateExpectedTime:
 
         :return: None
         """
-        print("Program execution time:", self.execution_time)
-        print("Iteration time:", self.actual_iteration_time)
-        print("Average iteration time:", self.average_iteration_time)
-        print("Program completion percentage:", self.percentage_of_program_completion)
-        print("Expected program execution time:", self.expected_duration_of_the_program)
-        print("Estimated time until the end of the program:", self.estimated_time_until_the_end_of_the_program)
+        print("Program execution time:                         ",
+              CalculateExpectedTime.format_time(self.execution_time))
+        print("Iteration time:                                 ",
+              CalculateExpectedTime.format_time(self.actual_iteration_time))
+        print("Average iteration time:                         ",
+              CalculateExpectedTime.format_time(self.average_iteration_time))
+        print("Program completion percentage:                  ",
+              self.percentage_of_program_completion)
+        print("Expected program execution time:                ",
+              CalculateExpectedTime.format_time(self.expected_duration_of_the_program))
+        print("Estimated time until the end of the program:    ",
+              CalculateExpectedTime.format_time(self.estimated_time_until_the_end_of_the_program))
